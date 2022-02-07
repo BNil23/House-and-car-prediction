@@ -5,7 +5,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 import time
 from urllib import request
-from lxml.html import fromstring
 import requests
 from itertools import cycle
 import traceback
