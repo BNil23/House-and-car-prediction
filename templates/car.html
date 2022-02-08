@@ -6,15 +6,15 @@
 			<div class="search-property">
 				<div class="s-holder">
 					<h2>Özellikleri Giriniz</h2>
-                    <form action="" method="POST">
+                    <form action="/car" method="POST">
 					<div class="row">
                         <div class="left"> 
                             <div class="col-xxs-12 col-xs-12">
                                 <div class="input-field">
-								<label for="from">Seri:</label>
-							    <select class="cs-select cs-skin-border">
+								<label for="from">Marka:</label>
+							    <select name ="brand_select" class="cs-select cs-skin-border">
                                     <option value="" disabled selected>Seçim Yapınız.</option>
-									<option value="0" >Audi</option>
+									<option value="0">Audi</option>
 									<option value="1">BMW</option>
 									<option value="2">Chevrolet</option>
                                     <option value="3">Citroen</option>
@@ -51,7 +51,7 @@
                                 <div class="col-xxs-12 col-xs-12">
                                 <div class="input-field">
 								<label for="from">Seri:</label>
-							    <select class="cs-select cs-skin-border">
+							    <select name="model_select" class="cs-select cs-skin-border">
                                     <option value="" disabled selected>Seçim Yapınız.</option>
 									<option value="0">1 Serisi</option>
 									<option value="1">200</option>
@@ -164,7 +164,7 @@
 						<div class="col-xxs-12 col-xs-12">
 							<div class="input-field">
 								<label for="class">Yıl:</label>
-									<input type="text" class="form-control" id="from-place" placeholder="Sayısal Değer Giriniz"/>
+									<input name ="year" type="text" class="form-control" id="from-place" placeholder="Sayısal Değer Giriniz"/>
 							</div>
 						</div>
 
@@ -172,7 +172,7 @@
 							<section>
 								<label for="class">Yakıt Tipi:</label>
 								<div class="wide">
-									<select class="cs-select cs-select-half cs-skin-border input-half">
+									<select name="fuel_select" class="cs-select cs-select-half cs-skin-border input-half">
                                         <option value="" disabled selected>Seçim Yapınız.</option>
 										<option value="0">Benzin</option>
 										<option value="1">Dizel</option>
@@ -189,7 +189,7 @@
 							<section>
 								<label for="class">Vites Tipi:</label>
 								<div class="wide">
-									<select class="cs-select cs-select-half cs-skin-border input-half">
+									<select name="gear_select" class="cs-select cs-select-half cs-skin-border input-half">
                                         <option value="" disabled selected>Seçim Yapınız.</option>
 										<option value="0">Otomatik</option>
 										<option value="1">Yarı Otomatik</option>
@@ -202,13 +202,13 @@
                         	<div class="col-xxs-12 col-xs-12">
 							<div class="input-field">
 								<label for="class">Motor Hacmi:</label>
-									<input type="text" class="form-control" id="from-place" placeholder="Sayısal Değer Giriniz"/>
+									<input name="engineCapacity" type="text" class="form-control" id="from-place" placeholder="Sayısal Değer Giriniz"/>
 							</div>
 						</div>
 						<div class="col-xxs-12 col-xs-12">
 							<div class="input-field">
 								<label for="class">Motor Gücü:</label>
-									<input type="text" class="form-control" id="from-place" placeholder="Sayısal Değer Giriniz"/>
+									<input name="motorPower" type="text" class="form-control" id="from-place" placeholder="Sayısal Değer Giriniz"/>
 							</div>
 						</div>
                         </div>
@@ -216,13 +216,13 @@
                         	<div class="col-xxs-12 col-xs-12">
 							 <div class="input-field">
 								<label for="class">Kilometre:</label>
-									<input type="text" class="form-control" id="from-place" placeholder="Sayısal Değer Giriniz"/>
+									<input name="kilometer" type="text" class="form-control" id="from-place" placeholder="Sayısal Değer Giriniz"/>
 							</div>
 						</div>
 						<div class="col-xxs-12 col-xs-12">
 							<div class="input-field">
 								<label for="class">Toplam Tramer Tutarı:</label>
-									<input type="text" class="form-control" id="from-place" placeholder="Sayısal Değer Giriniz"/>
+									<input name="accident" type="text" class="form-control" id="from-place" placeholder="Sayısal Değer Giriniz"/>
 							</div>
 						</div>
                         </div>
@@ -230,7 +230,6 @@
 						
 						<div class="col-xxs-12 col-xs-12 text-center">
 							<p>
-                                
                                 <button type="submit" class="btn btn-primary btn-lg">Aslını Hesapla</button>
                             </p>
 						</div>

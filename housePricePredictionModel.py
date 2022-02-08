@@ -1,6 +1,4 @@
-from importlib.resources import Resource
 from sklearn.model_selection import train_test_split, GridSearchCV,cross_val_score
-from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.metrics import r2_score
 import pandas as pd
 import xgboost as xgb
@@ -22,9 +20,9 @@ params = {"colsample_bytree":[0.4,0.5,0.6],
           "max_depth":[2,3,4,5,6],
           "n_estimators":[100,200,500,2000]}
 
-#xgb = XGBRegressor()
-#grid = GridSearchCV(xgb, params, cv = 10, n_jobs = -1, verbose = 2)
-#grid.fit(X_train, y_train)
+xgb = XGBRegressor()
+grid = GridSearchCV(xgb, params, cv = 10, n_jobs = -1, verbose = 2)
+grid.fit(X_train, y_train)
 
 #colsample_bytree 0.5
 #learning_rate 0.02
@@ -39,8 +37,5 @@ xgb1 = XGBRegressor(colsample_bytree = 0.5,
 model_xgb = xgb1.fit(X_train, y_train)
 
 
-
-# filename = "housePredictionModel.pkl"
-# pickle.dump(model_xgb, xgb1, open(filename, "wb"))
 
 
