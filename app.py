@@ -7,7 +7,8 @@ app = Flask(__name__)
 api = Api(app)
 
 #API
-api.add_resource(apis.LinearRegressionApi, '/ml')
+api.add_resource(apis.HousePricePredictionApi, '/housePredict')
+api.add_resource(apis.CarPricePredictionApi, '/carPredict')
 
 @app.route("/")
 def index():
