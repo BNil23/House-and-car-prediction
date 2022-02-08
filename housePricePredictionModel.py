@@ -20,9 +20,9 @@ params = {"colsample_bytree":[0.4,0.5,0.6],
           "max_depth":[2,3,4,5,6],
           "n_estimators":[100,200,500,2000]}
 
-xgb = XGBRegressor()
-grid = GridSearchCV(xgb, params, cv = 10, n_jobs = -1, verbose = 2)
-grid.fit(X_train, y_train)
+#xgb = XGBRegressor()
+#grid = GridSearchCV(xgb, params, cv = 10, n_jobs = -1, verbose = 2)
+#grid.fit(X_train, y_train)
 
 #colsample_bytree 0.5
 #learning_rate 0.02

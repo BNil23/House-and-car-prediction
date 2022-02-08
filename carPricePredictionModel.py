@@ -3,9 +3,13 @@ from sklearn.metrics import mean_squared_error, r2_score
 import pandas as pd
 from sklearn.metrics import r2_score
 import xgboost as xgb
+import numpy
 from xgboost import XGBRegressor
 
 df = pd.read_csv("son_hali_araba.csv")
+
+df.drop("Unnamed: 0", axis = 1, inplace = True)
+df.drop("Model", axis = 1, inplace = True)
 
 X = df.drop(["Fiyat"], axis = 1)
 y = df["Fiyat"] 
@@ -17,9 +21,9 @@ params = {"colsample_bytree":[0.4,0.5,0.6],
           "max_depth":[2,3,4,5,6],
           "n_estimators":[100,200,500,2000]}
 
-xgb = XGBRegressor()
-grid = GridSearchCV(xgb, params, cv = 10, n_jobs = -1, verbose = 2)
-grid.fit(X_train, y_train)
+#xgb = XGBRegressor()
+#grid = GridSearchCV(xgb, params, cv = 10, n_jobs = -1, verbose = 2)
+#grid.fit(X_train, y_train)
 
 #colsample_bytree 0.4
 #learning_rate 0.02

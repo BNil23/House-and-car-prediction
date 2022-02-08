@@ -1,6 +1,6 @@
 from flask import request
 from flask import Flask, render_template, redirect
-from flask_restful import Api, Resource, reqparse
+from flask_restful import Api, Resource
 import apis
 
 app = Flask(__name__)
@@ -15,9 +15,20 @@ api.add_resource(apis.CarPricePredictionApi, '/carPredict')
 def index():
         return render_template("index.html")
 
-@app.route("/house")
+@app.route("/house", methods = ['POST', 'GET'])
 def house():
-        return render_template("house.html")
+        if request.method == 'GET':
+                return render_template("house.html")
+        if request.method == 'POST':
+                district = request.form.get('district_select')
+                gross = request.form['gross_msquare']
+                net = request.form['net_msquare']
+                room = request.form.get('room_select')
+                age = request.form.get('building_age')
+                floor = request.form.get('floor_loc')
+                #[ilce], [net], [brut], [oda], [yas], [kat]] 
+                url = 'housePredict?ilce=' + district + '&brut=' + gross + '&net=' + net + '&oda=' + room + '&yas=' + age + '&kat=' + floor
+                return redirect(url)
 
 @app.route("/car", methods = ['POST', 'GET'])
 def car():
