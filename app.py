@@ -1,7 +1,14 @@
-from flask import Flask, render_template, flash, redirect, url_for, session, logging, request
+from flask import Flask, render_template
+from flask_restful import Api, Resource, reqparse
+import apis
 
 app = Flask(__name__)
 
+api = Api(app)
+
+#API
+api.add_resource(apis.HousePricePredictionApi, '/housePredict')
+api.add_resource(apis.CarPricePredictionApi, '/carPredict')
 
 @app.route("/")
 def index():
