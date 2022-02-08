@@ -3,14 +3,13 @@ from sklearn.metrics import mean_squared_error, r2_score
 import pandas as pd
 from sklearn.metrics import r2_score
 import xgboost as xgb
+import numpy
 from xgboost import XGBRegressor
 
-df = pd.read_csv("emlak_verisi.csv")
-df.drop("Sehir", axis = 1, inplace = True)
-df.drop("Mahalle", axis = 1, inplace = True)
-df.dropna(inplace = True)
+df = pd.read_csv("son_hali_araba.csv")
 
-df = df[["İlce","Fiyat","brüt metrekare","Net Metrekare","Oda Sayısı","Binanın Yaşı","Bulunduğu Kat"]]
+df.drop("Unnamed: 0", axis = 1, inplace = True)
+df.drop("Model", axis = 1, inplace = True)
 
 X = df.drop(["Fiyat"], axis = 1)
 y = df["Fiyat"] 
@@ -37,6 +36,3 @@ xgb1 = XGBRegressor(colsample_bytree = 0.4,
                     n_estimators = 2000)
                 
 model_xgb = xgb1.fit(X_train, y_train)
-
-# linreg = LinearRegression()
-# linreg.fit(X_train, y_train) 
